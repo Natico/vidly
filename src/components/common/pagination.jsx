@@ -2,8 +2,7 @@ import React from "react";
 import _ from "lodash";
 import PropTypes from "prop-types";
 
-const Pagination = props => {
-  const { itemsCount, pageSize, onPageChange, currentPage } = props;
+const Pagination = ({ itemsCount, pageSize, onPageChange, currentPage }) => {
   console.log(currentPage);
   const pagesCount = Math.ceil(itemsCount / pageSize);
   if (pagesCount === 1) return null;
@@ -14,7 +13,6 @@ const Pagination = props => {
         {pages.map(page => (
           <li
             key={page}
-            className="page-item"
             className={page === currentPage ? "page-item active" : "page-item"}
           >
             <a onClick={() => onPageChange(page)} className="page-link">
